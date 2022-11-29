@@ -1,10 +1,4 @@
-/*
-NAME : FEGADE SHREYAS MANOJ
-PRN : 1741019
-BATCH : B-1
-CLASS : LY COMP
-AIM : STUDENTS DETAILS SYSTEM USING JAVA SWING JDBC MYSQL DATABASE
-*/
+
 
 import java.awt.*;
 import javax.swing.*;
@@ -19,9 +13,9 @@ import java.util.*;
 
 public class LoginUser extends JFrame implements ActionListener
 {
-	Label title = new Label("Student Details System");
+	Label title = new Label("UIC Students Details System");
 	Label title2 = new Label("Student Login");
-	Label uname=new Label("User Name:");
+	Label uname=new Label("User ID:");
 	TextField unamet=new TextField();
 	Label password=new Label("Password:");
 	TextField passwordl=new TextField();
@@ -34,9 +28,9 @@ public class LoginUser extends JFrame implements ActionListener
 		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setSize(750,680);
 		setLocation(400,160);
-		setTitle("Student Details System");
+		setTitle("University of Illinois at Chicago Students Details System");
 		getContentPane().setLayout(null);
-		this.getContentPane().setBackground(new Color(102,102,225));
+		this.getContentPane().setBackground(new Color(51,153,255));
 		
 		Font font1 =new Font("Verdana",Font.BOLD,20);
 
@@ -69,14 +63,15 @@ public class LoginUser extends JFrame implements ActionListener
 
 
 		logine.setBounds(200,560,100,30);
-		logine.setFont(font1);
-		logine.setBackground(new Color(225,0,0));
+		logine.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		//logine.setBackground(new Color(0,0,255));
+		//logine.setForeground(Color.WHITE);
 		getContentPane().add(logine);
 		logine.addActionListener(this);
 
 		cancel.setBounds(500,560,100,30);
-		cancel.setFont(font1);
-		cancel.setBackground(new Color(225,0,0));
+		cancel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		//cancel.setBackground(new Color(225,0,0));
 		getContentPane().add(cancel);
 		cancel.addActionListener(this);
 		

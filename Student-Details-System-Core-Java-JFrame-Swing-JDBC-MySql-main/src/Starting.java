@@ -1,38 +1,32 @@
-/*
-NAME : FEGADE SHREYAS MANOJ
-PRN : 1741019
-BATCH : B-1
-CLASS : LY COMP
-AIM : STUDENTS DETAILS SYSTEM USING JAVA SWING JDBC MYSQL DATABASE
-*/
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
 public class Starting extends JFrame implements ActionListener
 {
-	Label title = new Label("Students Details System");
+	Label title = new Label("UIC Students Details System");
 	//Label title2 =new Label("OWNER");
 	Button logino= new Button("Admin Login");
 	Button logine= new Button("Student Login");
 	Button Exist= new Button("Exit");
 	
 	
-	Label dev = new Label("Developed By : Shreyas Fegade");
+	Label dev = new Label("University of Illinois at Chicago");
 	Starting()
 	{
 		setSize(750,680); 
 		setLocation(400,160);
-		setTitle("Students Details System");
+		setTitle("University of Illinois at Chicago Students Details System");
 		JLabel label = new JLabel();
 		setContentPane(label);
 		getContentPane().setLayout(null);
-		setBackground(Color.GREEN);
+		setBackground(Color.RED);
 		title.setBounds(180,50,380,40);
 		title.setAlignment(Label.CENTER);
 		title.setFont(new Font("Serif", Font.BOLD, 30));
 		getContentPane().add(title);
-		dev.setBackground(Color.GREEN);
+		dev.setBackground(Color.RED);
 		dev.setAlignment(Label.CENTER);
 //		title2.setBounds(300,110,150,40);
 //		title2.setFont(new Font("Serif", Font.BOLD, 30));
@@ -46,14 +40,20 @@ public class Starting extends JFrame implements ActionListener
 		
 		logino.setBounds(250,200,200,60);
 		getContentPane().add(logino);
+		logino.setBackground(Color.BLUE);
+		logino.setForeground(Color.WHITE);
 		logino.addActionListener(this);
 
 		logine.setBounds(250,300,200,60);
 		getContentPane().add(logine);
+		logine.setBackground(Color.BLUE);
+		logine.setForeground(Color.WHITE);
 		logine.addActionListener(this);
 
 		Exist.setBounds(250,400,200,60);
 		getContentPane().add(Exist);
+		Exist.setBackground(Color.BLUE);
+		Exist.setForeground(Color.WHITE);
 		Exist.addActionListener(this);
 
 	}

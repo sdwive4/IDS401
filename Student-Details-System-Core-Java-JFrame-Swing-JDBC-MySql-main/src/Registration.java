@@ -1,11 +1,4 @@
-
-/*
-NAME : FEGADE SHREYAS MANOJ
-PRN : 1741019
-BATCH : B-1
-CLASS : LY COMP
-AIM : STUDENTS DETAILS SYSTEM USING JAVA SWING JDBC MYSQL DATABASE
-*/
+import java.util.Locale;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -37,6 +30,7 @@ public class Registration extends JFrame {
 	private JComboBox date;
 	private JComboBox month;
 	private JComboBox year;
+	private JComboBox Nationality;
 	private JLabel gender;
 	private JRadioButton female;
 	private ButtonGroup gengp;
@@ -46,6 +40,7 @@ public class Registration extends JFrame {
 	private JLabel newlabel3;
 	private JButton btnNewButton;
 	private JLabel lblNewLabel;
+	private JLabel Origin;
 	
 	private String dates[]
 			= { "1", "2", "3", "4", "5",
@@ -67,6 +62,10 @@ public class Registration extends JFrame {
 				"2011", "2012", "2013", "2014",
 				"2015", "2016", "2017", "2018",
 				"2019" };
+	
+	private String nationalities[]
+			= { "India", "USA", "Canada", "China", "UK",
+				"Ghana" };
 	private JTextField address;
 	private JTextField nationality;
 
@@ -153,6 +152,18 @@ public class Registration extends JFrame {
 		year.setLocation(259, 196);
 		contentPane.add(year);
 		
+		Origin = new JLabel("Origin:");
+		Origin.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Origin.setSize(73, 20);
+		Origin.setLocation(45, 360);
+		contentPane.add(Origin);
+		
+		Nationality = new JComboBox(nationalities);
+		Nationality.setFont(new Font("Arial", Font.PLAIN, 15));
+		Nationality.setSize(70, 20);
+		Nationality.setLocation(128, 360);
+		contentPane.add(Nationality);
+		
 		gender = new JLabel("Gender:");
 		gender.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		gender.setSize(100, 20);
@@ -187,6 +198,8 @@ public class Registration extends JFrame {
 		gengp = new ButtonGroup();
 		gengp.add(male);
 		gengp.add(female);
+		
+
 		
 		
 		newlabel3 = new JLabel("Email:");
@@ -231,7 +244,7 @@ public class Registration extends JFrame {
 					ps.setString(7, gend);
 					
 					ps.setString(8, address.getText());
-					ps.setString(9, "INDIAN");
+					ps.setString(9, Nationality.getSelectedItem().toString());
 					
 					int flag1=0,flag2=0,flag3=0;
 					if(name.getText()!=null && email.getText()!=null && pass.getText()!=null && date.getSelectedItem()!=null && month.getSelectedItem()!=null && year.getSelectedItem()!=null && gend!=null && address.getText()!=null)

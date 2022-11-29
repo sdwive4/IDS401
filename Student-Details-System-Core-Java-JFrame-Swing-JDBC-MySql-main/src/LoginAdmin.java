@@ -15,6 +15,9 @@ import java.sql.ResultSet;
 
 class LoginAdmin extends JFrame implements ActionListener
 {
+	
+	
+
 	Label title = new Label("Student Details System");
 	JLabel usid = new JLabel("User ID: ");
 	JTextField usidt =new JTextField();
@@ -28,9 +31,9 @@ class LoginAdmin extends JFrame implements ActionListener
 	{
 		setSize(750,680);
 		setLocation(400,160);
-		setTitle("Students Details System");
+		setTitle("University of Illinois at Chicago Students Details System");
 		getContentPane().setLayout(null);
-		this.getContentPane().setBackground(new Color(238,130,238));
+		this.getContentPane().setBackground(new Color(0,130,238));
 		
 		title.setBounds(200,50,380,40);
 		title.setAlignment(Label.CENTER);

@@ -1,15 +1,4 @@
-/*
-NAME : FEGADE SHREYAS MANOJ
-PRN : 1741019
-BATCH : B-1
-CLASS : LY COMP
-AIM : STUDENTS DETAILS SYSTEM USING JAVA SWING JDBC MYSQL DATABASE
-*/
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +10,7 @@ import java.awt.event.*;
 
 public class StudentDash extends JFrame {
 
+	private static String temp_country="";
 	private static int temp_day=0;
 	private static String temp_month="";
 	private static int temp_year=0;
@@ -36,6 +26,7 @@ public class StudentDash extends JFrame {
 	private JLabel dob;
 	private JComboBox date;
 	private JTextField full_date;
+	private JTextField full_country;
 	private JComboBox month;
 	private JComboBox year;
 	private JLabel gender;
@@ -52,6 +43,9 @@ public class StudentDash extends JFrame {
 	private JButton logoutbtn;
 	private JButton backbtn;
 	private JTextField userId;
+	private JLabel Origin;
+	private JComboBox Nationality;
+	
 	
 	private String dates[]
 			= { "1", "2", "3", "4", "5",
@@ -73,6 +67,10 @@ public class StudentDash extends JFrame {
 				"2011", "2012", "2013", "2014",
 				"2015", "2016", "2017", "2018",
 				"2019","2020","2021" };
+	
+	private String nationalities[]
+			= { "India", "USA", "Canada", "China", "UK",
+				"Ghana" };
 
 	/**
 	 * Launch the application.
@@ -171,6 +169,26 @@ public class StudentDash extends JFrame {
 		gender.setSize(100, 20);
 		gender.setLocation(45, 229);
 		contentPane.add(gender);
+		
+		Origin = new JLabel("Origin:");
+		Origin.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		Origin.setSize(73, 20);
+		Origin.setLocation(45, 360);
+		contentPane.add(Origin);
+		
+		JTextField full_country = new JTextField();
+		full_country.setSize(100, 20);
+		full_country.setLocation(128, 360);
+		contentPane.add(full_country);
+		full_country.setVisible(false);
+		full_country.setColumns(20);
+		contentPane.add(full_country);
+		
+		Nationality = new JComboBox(nationalities);
+		Nationality.setFont(new Font("Arial", Font.PLAIN, 15));
+		Nationality.setSize(70, 20);
+		Nationality.setLocation(128, 360);
+		contentPane.add(Nationality);
 
 		male = new JRadioButton("Male");
 		male.addActionListener(new ActionListener() {
@@ -254,18 +272,20 @@ public class StudentDash extends JFrame {
                 int year_dob = rs.getInt("DOB_YEAR");
                 String gen = rs.getString("Gender");
                 String addr = rs.getString("Address");
+                String country = rs.getString("Nationality");
              
                 //System.out.println(usname+uemail+upass+day_dob+month_dob+year_dob+gen+addr);
                 
                 temp_day=day_dob;
                 temp_month=month_dob;
                 temp_year=year_dob;
+                temp_country = country;
                 
                 
     	        date.setVisible(false);
     	        month.setVisible(false);
     	        year.setVisible(false);
-    	        
+    	        Nationality.setVisible(false);    	        
     	        male.setVisible(false);
     	        female.setVisible(false);
     	        
@@ -277,6 +297,8 @@ public class StudentDash extends JFrame {
                 full_date.setVisible(true);
                 full_date.setText(day_dob+"/"+month_dob+"/"+year_dob);
                 genTextField.setVisible(true);
+                full_country.setVisible(true);
+                full_country.setText(country);
                
                 genTextField.setText(gen);
                 address.setText(addr);
@@ -287,6 +309,7 @@ public class StudentDash extends JFrame {
                 email.setEditable(false);
                 pass.setEditable(false);
                 full_date.setEditable(false);
+                full_country.setEditable(false);
                 genTextField.setEditable(false);
                 address.setEditable(false);
                 
@@ -318,10 +341,12 @@ public class StudentDash extends JFrame {
                 
                 full_date.setVisible(false);
                 genTextField.setVisible(false);
+                full_country.setVisible(false);
                 
                 date.setVisible(true);
     	        month.setVisible(true);
     	        year.setVisible(true);
+    	        Nationality.setVisible(true);
     	        
     	        male.setVisible(true);
     	        female.setVisible(true);
@@ -336,7 +361,7 @@ public class StudentDash extends JFrame {
     	        date.setSelectedItem(Integer.toString(temp_day));
     	        month.setSelectedItem(temp_month);
     	        year.setSelectedItem(Integer.toString(temp_year));
-    	        
+    	        Nationality.setSelectedItem(temp_country);
                 address.setEditable(true);
 				
 			}
@@ -369,6 +394,7 @@ public class StudentDash extends JFrame {
 					ps.setString(4, date.getSelectedItem().toString());
 					ps.setString(5, month.getSelectedItem().toString());
 					ps.setString(6, year.getSelectedItem().toString());
+					ps.setString(7, Nationality.getSelectedItem().toString());
 					String temp_gender="";
 					if(male.isSelected())
 					{
